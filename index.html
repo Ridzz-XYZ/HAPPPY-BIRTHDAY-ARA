@@ -1,0 +1,1008 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff7fbd">
+<title>Happy Birthday Ara 🎂</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+  --pink: #ff4fa3;
+  --purple: #a855f7;
+  --white: #fffaff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  color: var(--white);
+}
+
+body {
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: #240d29;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* BACKGROUND FOTO BLUR */
+.bg-photo {
+  position: fixed;
+  inset: -25px;
+  background: url('foto5.jpg') center/cover no-repeat;
+  filter: blur(16px) brightness(.48) saturate(1.2);
+  transform: scale(1.08);
+  z-index: -3;
+}
+
+.bg-photo:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    #ff5fb377,
+    #512c8e88,
+    #170d2caa
+  );
+}
+
+.sparkle-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 20%, #ffb6e433 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 75%, #fff6 0 2px, transparent 3px);
+  background-size: 80px 90px, 120px 110px;
+}
+
+/* HALAMAN */
+.screen {
+  display: none;
+  min-height: 100svh;
+  padding: 28px 16px 36px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  isolation: isolate;
+}
+
+.screen.active {
+  display: flex;
+  animation: screenIn .7s ease both;
+}
+
+#home {
+  background: radial-gradient(
+    ellipse at center,
+    #6e2c6788,
+    #1d1026bb
+  );
+}
+
+@keyframes screenIn {
+  from {
+    opacity: 0;
+    transform: scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* EMOTE MENGAMBANG */
+.decor {
+  position: fixed;
+  font-size: clamp(22px, 5vw, 38px);
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 4px 10px #ff64b777);
+  animation: floaty 3.5s ease-in-out infinite;
+}
+
+.d1 { top: 7%; left: 7%; }
+.d2 { top: 12%; right: 8%; animation-delay: .6s; }
+.d3 { bottom: 10%; left: 8%; animation-delay: 1.1s; }
+.d4 { bottom: 8%; right: 9%; animation-delay: 1.7s; }
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-13px) rotate(8deg);
+  }
+}
+
+/* TEKS HALAMAN DEPAN */
+.kicker {
+  font-family: Fredoka, sans-serif;
+  letter-spacing: 3px;
+  font-size: .82rem;
+  color: #ffd7ef;
+  text-transform: uppercase;
+}
+
+.big-title {
+  font-family: Fredoka, 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 12vw, 6.5rem);
+  line-height: .95;
+  margin: 16px 0;
+  color: #fff;
+  text-shadow:
+    0 4px 0 #ff5aa4,
+    0 0 12px #ff5aa4,
+    0 0 32px #ff8ac8,
+    0 0 60px #ff4fa3;
+  animation: titleGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  to {
+    text-shadow:
+      0 4px 0 #d83a92,
+      0 0 20px #ff91cb,
+      0 0 48px #ff4fa3;
+  }
+}
+
+.subtitle {
+  font-size: clamp(1.08rem, 4.2vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.45;
+  text-shadow: 0 2px 12px #3b123d;
+  max-width: 520px;
+}
+
+.pill {
+  border: 1px solid #ffffff66;
+  border-radius: 999px;
+  padding: 8px 15px;
+  background: #ffffff18;
+  backdrop-filter: blur(10px);
+  font-size: .9rem;
+  margin: 8px 0 20px;
+}
+
+/* TOMBOL MENYALA */
+.btn {
+  position: relative;
+  border: 0;
+  border-radius: 18px;
+  padding: 13px 30px;
+  color: white;
+  font-weight: 800;
+  font-size: 1.18rem;
+  letter-spacing: .5px;
+  background: linear-gradient(
+    120deg,
+    #ff4fa3,
+    #ff83bf 50%,
+    #a855f7
+  );
+  box-shadow:
+    0 7px 0 #9e347a,
+    0 0 20px #ff62bbaa,
+    0 0 40px #ff62b755;
+  transition: transform .18s, filter .18s;
+  overflow: hidden;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -40%;
+  width: 35%;
+  height: 220%;
+  background: #ffffff77;
+  transform: rotate(25deg);
+  transition: left .5s;
+}
+
+.btn:hover:before {
+  left: 120%;
+}
+
+.btn:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #9e347a, 0 0 20px #ff62bbaa;
+}
+
+.btn.secondary {
+  background: linear-gradient(120deg, #8b5cf6, #c084fc);
+  box-shadow: 0 6px 0 #6334a5, 0 0 24px #b77aff88;
+}
+
+.btn-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+/* HALAMAN FOTO */
+.content-screen {
+  justify-content: flex-start;
+  padding-top: 26px;
+}
+
+.top-label {
+  font-family: Fredoka, sans-serif;
+  font-size: .8rem;
+  letter-spacing: 2px;
+  color: #ffe2f2;
+  text-transform: uppercase;
+}
+
+.neon-title {
+  font-family: Fredoka, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 7vw, 3.8rem);
+  line-height: 1.08;
+  margin: 7px 0 20px;
+  background: linear-gradient(
+    90deg,
+    #fff,
+    #ffb2dd,
+    #d7b4ff,
+    #fff
+  );
+  background-size: 250% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter:
+    drop-shadow(0 0 6px #ff55b9)
+    drop-shadow(0 0 16px #e34fff);
+  animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+  to {
+    background-position: 250% center;
+  }
+}
+
+/* GRID FOTO */
+.photo-grid {
+  width: min(100%, 650px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* BINGKAI FOTO RGB */
+.photo-card {
+  position: relative;
+  padding: 7px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    #fff,
+    #ff68b7,
+    #d2a1ff,
+    #fff0a8,
+    #ff6ac0
+  );
+  background-size: 250% 250%;
+  animation: frameGlow 4s ease infinite;
+  box-shadow:
+    0 0 0 2px #ffffff66,
+    0 0 16px #ff67c6aa,
+    0 0 34px #b65bff55;
+  transform: rotate(-1deg);
+}
+
+.photo-card:nth-child(2) {
+  transform: rotate(1.2deg);
+}
+
+.photo-card:nth-child(3) {
+  transform: rotate(1deg);
+}
+
+.photo-card:nth-child(4) {
+  transform: rotate(-1deg);
+}
+
+@keyframes frameGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(12deg);
+  }
+}
+
+.photo-inner {
+  overflow: hidden;
+  border: 2px solid #fff;
+  border-radius: 16px;
+  background: #381d3a;
+  position: relative;
+  aspect-ratio: 4 / 5;
+}
+
+.photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s;
+}
+
+.photo-card:hover img {
+  transform: scale(1.06);
+}
+
+.photo-inner:after {
+  content: "♡ ✨ ♡";
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+  color: white;
+  font-size: 1.05rem;
+  text-shadow: 0 0 8px #ff2e9d, 0 2px 4px #000;
+  pointer-events: none;
+}
+
+.sticker {
+  position: absolute;
+  z-index: 1;
+  font-size: 23px;
+  filter: drop-shadow(0 2px 5px #7c1b64);
+  top: -12px;
+  right: -9px;
+  transform: rotate(12deg);
+}
+
+.caption {
+  font-size: .8rem;
+  font-weight: 700;
+  margin-top: 9px;
+  color: #fff0f8;
+  text-shadow: 0 0 8px #ff66c1;
+}
+
+/* KOTAK UCAPAN */
+.letter {
+  position: relative;
+  width: min(100%, 650px);
+  margin: 22px auto 0;
+  text-align: left;
+  padding: 20px 19px;
+  border: 2px solid #ff91ce;
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    #3c163fa8,
+    #72275b99
+  );
+  box-shadow:
+    inset 0 0 22px #ff5fb922,
+    0 0 10px #ff5fb9,
+    0 0 25px #ff5fb966;
+  backdrop-filter: blur(10px);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+.letter:before {
+  content: "💌 ✧･ﾟ: *✧･ﾟ:* 💗";
+  display: block;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #ffd6ed;
+}
+
+.letter p {
+  margin: 0;
+}
+
+.letter .sign {
+  display: block;
+  text-align: right;
+  margin-top: 12px;
+  color: #ffd1ec;
+  font-weight: 800;
+}
+
+.footer-note {
+  margin-top: 17px;
+  font-size: .8rem;
+  color: #ffe1f3;
+}
+
+/* ANIMASI ZOOM DAN CAHAYA */
+#transition {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  opacity: 0;
+}
+
+#transition.go {
+  display: flex;
+  animation: flashZoom .95s ease-in-out both;
+}
+
+#transition:after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(
+    circle,
+    #fff 0 5%,
+    #fff9 10%,
+    #ffb8e0aa 25%,
+    transparent 55%
+  );
+  transform: scale(.1);
+}
+
+#transition.go:after {
+  animation: flashBurst .95s ease-out both;
+}
+
+@keyframes flashZoom {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  65% { opacity: .95; }
+  100% { opacity: 0; }
+}
+
+@keyframes flashBurst {
+  0% { transform: scale(.1); }
+  55% { transform: scale(1.6); }
+  100% { transform: scale(2.8); }
+}
+
+/* ANIMASI BUKA BUKU */
+#book-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 19;
+  pointer-events: none;
+  display: none;
+  background: linear-gradient(
+    90deg,
+    #ffd8ef,
+    #fff 48%,
+    #f5a8d5
+  );
+  transform-origin: left;
+  box-shadow: inset -20px 0 35px #8e2b7155;
+}
+
+#book-wipe.go {
+  display: block;
+  animation: pageFlip .68s cubic-bezier(.7, 0, .25, 1) both;
+}
+
+@keyframes pageFlip {
+  0% {
+    transform: perspective(1000px) rotateY(0);
+    opacity: 1;
+  }
+  65% {
+    transform: perspective(1000px) rotateY(-88deg);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(-115deg);
+    opacity: 0;
+  }
+}
+
+/* EFEK PETASAN ULANG TAHUN */
+.confetti {
+  position: fixed;
+  z-index: 30;
+  top: -20px;
+  pointer-events: none;
+  animation: fall var(--dur, 3s) linear forwards;
+  font-size: var(--size, 20px);
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(
+      var(--drift, 30px),
+      110svh,
+      0
+    ) rotate(720deg);
+    opacity: .15;
+  }
+}
+
+/* TOMBOL MUSIK */
+.music-chip {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 8;
+  border: 1px solid #ffffff55;
+  background: #371438aa;
+  color: white;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: .8rem;
+  backdrop-filter: blur(10px);
+  display: none;
+}
+
+.music-chip.show {
+  display: block;
+}
+
+@media (min-width: 700px) {
+  .letter {
+    font-size: 1.08rem;
+    padding: 24px 26px;
+  }
+
+  .photo-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .photo-grid {
+    gap: 10px;
+  }
+
+  .photo-card {
+    padding: 5px;
+  }
+
+  .letter {
+    padding: 16px;
+    font-size: .94rem;
+  }
+
+  .btn {
+    padding: 12px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-photo"></div>
+<div class="sparkle-bg"></div>
+
+<div class="decor d1">🎂</div>
+<div class="decor d2">🎀</div>
+<div class="decor d3">💗</div>
+<div class="decor d4">✨</div>
+
+<audio id="song" src="audio.mp3" preload="auto" loop></audio>
+
+<div id="transition"></div>
+<div id="book-wipe"></div>
+
+<main>
+
+<!-- HALAMAN 1 -->
+<section class="screen active" id="home">
+
+  <div class="kicker">A little surprise for you ✧</div>
+
+  <div style="font-size:clamp(2rem,8vw,4rem);margin-top:14px">
+    🎈 🧁 🎉
+  </div>
+
+  <h1 class="big-title">
+    HAPPY<br>BIRTHDAY!
+  </h1>
+
+  <div class="subtitle">
+    Selamat ulang tahun Ara<br>
+    18 Oktober • Selamat tambah umur 1 tahun 🤍
+  </div>
+
+  <div class="pill">
+    ୨୧ made with love, just for you from ryz୨୧
+  </div>
+
+  <button class="btn" id="openBtn">
+    🎁 BUKA ✨
+  </button>
+
+  <div class="footer-note">
+    Psst… ada kejutan kecil buat Ara 💌
+  </div>
+
+</section>
+
+
+<!-- HALAMAN 2 -->
+<section class="screen content-screen" id="page2">
+
+  <div class="top-label">
+    ♡ today is all about you ♡
+  </div>
+
+  <h2 class="neon-title">
+    HI ARAA<br>LUCU CANTIK ✨
+  </h2>
+
+  <div class="photo-grid">
+
+    <div class="photo-card">
+      <span class="sticker">🎀</span>
+      <div class="photo-inner">
+        <img src="foto1.jpg" alt="Foto Ara 1">
+      </div>
+      <div class="caption">pretty girl energy ♡</div>
+    </div>
+
+    <div class="photo-card">
+      <span class="sticker">🦋</span>
+      <div class="photo-inner">
+        <img src="foto2.jpg" alt="Foto Ara 2">
+      </div>
+      <div class="caption">my favorite person ✨</div>
+    </div>
+
+  </div>
+
+  <article class="letter">
+
+    <p>
+      Hii Araaa 💗 selamat ulang tahun yaa!
+      Semoga sehat selalu, dimudahkan rezekinya,
+      dan semua hal baik pelan-pelan datang ke Ara.
+      Maaf aku belum bisa ngasih apa-apa selama ini.
+      Aku bener-bener belum ngerti soalnya aku baru
+      pertama kali pacaran sama kamu. Aku juga belum
+      ngerti harus gimana buat ngerayain ulang tahun
+      cewek, tapi aku pengen Ara tahu kalau hari ini
+      spesial banget. 🥹🎂
+
+      <br><br>
+
+      Inget yaa, tumbuh jadi lebih baik, nurut sama
+      orang tua, jangan nakal hehe. Apa pun yang Ara
+      pengen, semoga selalu ada jalannya. Always berdoa
+      sama Tuhan, yaa. Dan jangan pernah ngerasa
+      sendirian—ada Tuhan, ada Mamah, ada Ayah, dan
+      ada aku yang selalu pengen Ara bahagia. 🤍
+
+      <br><br>
+
+      Happy birthday, Salvia Zahra 🤍
+      Lucu namanya, heheee. Semoga senyum Ara makin
+      banyak dan hari-hari Ara dipenuhi hal-hal yang
+      bikin bahagia. 🎀🫶
+    </p>
+
+    <span class="sign">
+      — from someone who cares about you ♡
+    </span>
+
+  </article>
+
+  <div class="btn-row">
+    <button class="btn" id="nextBtn">
+      LANJUT 💖 ➜
+    </button>
+  </div>
+
+  <div class="footer-note">
+    you deserve all the love & cake 🎂
+  </div>
+
+</section>
+
+
+<!-- HALAMAN 3 -->
+<section class="screen content-screen" id="page3">
+
+  <div class="top-label">
+    one more little page for you ♡
+  </div>
+
+  <h2 class="neon-title">
+    MY BIRTHDAY<br>GIRL 🎂💗
+  </h2>
+
+  <div class="photo-grid">
+
+    <div class="photo-card">
+      <span class="sticker">💝</span>
+      <div class="photo-inner">
+        <img src="foto3.jpg" alt="Foto Ara 3">
+      </div>
+      <div class="caption">cutie pie 🧸</div>
+    </div>
+
+    <div class="photo-card">
+      <span class="sticker">🌷</span>
+      <div class="photo-inner">
+        <img src="foto4.jpg" alt="Foto Ara 4">
+      </div>
+      <div class="caption">stay lovely ✨</div>
+    </div>
+
+  </div>
+
+  <article class="letter">
+
+    <p>
+      Happy birthday sekali lagi, Araaa! 🥳💞
+      Semoga umur yang baru ini bawa banyak kebahagiaan,
+      kesehatan, ketenangan, dan cerita indah buat Ara.
+      Semoga hal-hal yang lagi Ara usahain satu per satu
+      bisa tercapai. Kalau ada hari yang berat, istirahat
+      dulu yaa, nggak harus selalu kuat setiap waktu. 🌷
+
+      <br><br>
+
+      Makasih udah jadi bagian dari cerita aku.
+      Aku mungkin belum jago bikin kejutan atau ngerangkai
+      kata-kata, tapi aku harap web kecil ini bisa bikin
+      Ara senyum walau sedikit. Tetap jadi Ara yang ceria,
+      baik, dan punya banyak mimpi. Jangan lupa bahagia
+      hari ini, maafin ya aku banyak salah aku selalu minta maaf
+      agar hubungan kita baik baik aja aku ga mau kita berpisah 
+      sekali lagi maaf ya kalo aku banyak salah nya dan maaf aku belum bisa ngasih apa apa🎂🎉🤍
+    </p>
+
+    <span class="sign">
+      with lots of wishes, just for Ara ✧
+    </span>
+
+  </article>
+
+  <div class="btn-row">
+
+    <button class="btn secondary" id="backBtn">
+      ← BACK 🎀
+    </button>
+
+    <button class="btn" id="homeBtn">
+      ULANGI ✨
+    </button>
+
+  </div>
+
+  <div class="footer-note">
+    end of page, but not the end of the wishes ♡
+  </div>
+
+</section>
+
+</main>
+
+<button class="music-chip" id="musicBtn" aria-label="Putar atau jeda lagu">
+  🎵 Musik: ON
+</button>
+
+
+<script>
+const screens = [
+  document.getElementById('home'),
+  document.getElementById('page2'),
+  document.getElementById('page3')
+];
+
+const song = document.getElementById('song');
+const transition = document.getElementById('transition');
+const bookWipe = document.getElementById('book-wipe');
+const musicBtn = document.getElementById('musicBtn');
+
+let current = 0;
+let busy = false;
+
+
+/* GANTI HALAMAN */
+function showPage(index) {
+  screens.forEach((screen, i) => {
+    screen.classList.toggle('active', i === index);
+  });
+
+  current = index;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+/* CONFETTI ULANG TAHUN */
+function confettiBurst(amount = 65) {
+
+  const bits = [
+    '🎉', '🎊', '✨', '💖',
+    '🎀', '⭐', '💗', '🩷'
+  ];
+
+  for (let i = 0; i < amount; i++) {
+
+    const el = document.createElement('span');
+
+    el.className = 'confetti';
+
+    el.textContent =
+      bits[Math.floor(Math.random() * bits.length)];
+
+    el.style.left = (Math.random() * 100) + 'vw';
+
+    el.style.setProperty(
+      '--dur',
+      (2.2 + Math.random() * 2.5) + 's'
+    );
+
+    el.style.setProperty(
+      '--drift',
+      ((Math.random() - .5) * 180) + 'px'
+    );
+
+    el.style.setProperty(
+      '--size',
+      (14 + Math.random() * 17) + 'px'
+    );
+
+    el.style.animationDelay =
+      (Math.random() * .55) + 's';
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 5500);
+  }
+}
+
+
+/* ANIMASI PINDAH HALAMAN */
+function goTo(index, first = false) {
+
+  if (busy || index === current) return;
+
+  busy = true;
+
+  bookWipe.classList.remove('go');
+  transition.classList.remove('go');
+
+  void bookWipe.offsetWidth;
+
+  if (first) {
+
+    /* ZOOM DAN CAHAYA PUTIH */
+    transition.classList.add('go');
+
+    /* KEJUTAN AWAL */
+    confettiBurst(90);
+
+  } else {
+
+    /* EFEK BUKA LEMBARAN BUKU */
+    bookWipe.classList.add('go');
+
+  }
+
+  setTimeout(() => {
+
+    showPage(index);
+
+    if (index === 1) {
+      confettiBurst(first ? 55 : 30);
+    }
+
+    busy = false;
+
+  }, first ? 550 : 330);
+
+  setTimeout(() => {
+
+    bookWipe.classList.remove('go');
+    transition.classList.remove('go');
+
+  }, 1000);
+}
+
+
+/* TOMBOL BUKA + MUSIK */
+document.getElementById('openBtn').addEventListener('click', () => {
+
+  song.volume = 0.7;
+
+  song.play()
+    .then(() => {
+      musicBtn.classList.add('show');
+      musicBtn.textContent = '🎵 Musik: ON';
+    })
+    .catch(() => {
+      musicBtn.classList.add('show');
+      musicBtn.textContent = '🎵 Tap musik';
+    });
+
+  goTo(1, true);
+
+});
+
+
+/* TOMBOL LANJUT */
+document.getElementById('nextBtn').addEventListener('click', () => {
+  goTo(2);
+});
+
+
+/* TOMBOL BACK */
+document.getElementById('backBtn').addEventListener('click', () => {
+  goTo(1);
+});
+
+
+/* KEMBALI KE AWAL */
+document.getElementById('homeBtn').addEventListener('click', () => {
+  goTo(0);
+});
+
+
+/* KONTROL MUSIK */
+musicBtn.addEventListener('click', () => {
+
+  if (song.paused) {
+
+    song.play()
+      .then(() => {
+        musicBtn.textContent = '🎵 Musik: ON';
+      })
+      .catch(() => {
+        musicBtn.textContent = '🎵 Gagal memutar';
+      });
+
+  } else {
+
+    song.pause();
+    musicBtn.textContent = '🔇 Musik: OFF';
+
+  }
+
+});
+</script>
+
+</body>
+</html>
